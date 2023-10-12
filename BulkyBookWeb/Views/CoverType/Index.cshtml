@@ -1,0 +1,76 @@
+﻿@model IEnumerable<BulkyBookWeb.Models.CoverType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Cover Type List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="CoverType" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; Create New Cover Type
+            </a>
+        </div>
+    </div>
+    <br /><br />
+
+    <style>
+        .table-text-white th,
+        .table-text-white td {
+            color: white; /* Set the font color to white for both table headers and data cells */
+        }
+
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-icon-text {
+            display: inline-flex;
+            align-items: center;
+        }
+    </style>
+
+    <table class="table table-bordered table-striped table-text-white" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Cover Type Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td width="80%">
+                        @item.Name
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-controller="CoverType" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm btn-icon-text mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="CoverType" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm btn-icon-text mx-2">
+                                <i class="bi bi-info-circle"></i> Details
+                            </a>
+                            <a asp-controller="CoverType" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm btn-icon-text mx-2">
+                                <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="text-end">
+        <a asp-controller="CoverType" asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> &nbsp; Create New Cover Type
+        </a>
+    </div>
+</div>

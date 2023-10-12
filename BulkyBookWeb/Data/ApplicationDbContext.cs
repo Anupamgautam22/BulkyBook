@@ -1,7 +1,6 @@
 ﻿using BulkyBookWeb.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Reflection.PortableExecutable;
+
 
 namespace BulkyBookWeb.Data
 {
@@ -12,5 +11,11 @@ namespace BulkyBookWeb.Data
             
     }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<BulkyBookWeb.Models.Company>? Company { get; set; }
+        public DbSet<BulkyBookWeb.Models.Product>? Product { get; set; }
+        public DbSet<BulkyBookWeb.Models.CoverType>? CoverType { get; set; }
+     
+        
+       
     }
 }
